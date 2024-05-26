@@ -30,67 +30,93 @@ class _AuthPageState extends State<AuthPage> {
           Config.spaceSmall,
           Text(
             AppText.enText['signIn_text']!,
-            style: const TextStyle(
-              fontSize: 16, 
-              fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           ),
           Config.spaceSmall,
           //Login component
-          LoginForm(),
+          const LoginForm(),
           Config.spaceSmall,
           Center(
             child: TextButton(
               onPressed: () {},
               child: Text(
                 AppText.enText['forgot-password']!,
-                style:
-                    const TextStyle(
-                      fontSize: 16, 
-                      fontWeight: FontWeight.bold, 
-                      color: Colors.black),
+                style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black),
               ),
             ),
-          ),const Spacer(),
-          Center(
-              child: Text(
-                AppText.enText['social-login']!,
+          ),
+          const Spacer(),
+          Row(
+            children: <Widget>[
+              Expanded(
+                child: Divider(
+                  color: Colors.grey.shade400,
+                  thickness: 1,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Text(
+                  'or',
+                  style: TextStyle(
+                    color: Colors.grey.shade600,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Divider(
+                  color: Colors.grey.shade400,
+                  thickness: 1,
+                ),
+              ),
+            ],
+          ),
+          Config.spaceSmall,
+          // Center(
+          //   child: Text(
+          //     AppText.enText['social-login']!,
+          //     style: TextStyle(
+          //       fontSize: 16,
+          //       fontWeight: FontWeight.normal,
+          //       color: Colors.grey.shade500,
+          //     ),
+          //   ),
+          // ),
+          Config.spaceSmall,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: const <Widget>[
+              const SocialButton(social: 'google'),
+              const SocialButton(social: 'facebook'),
+            ],
+          ),
+          Config.spaceSmall,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                AppText.enText['signUp_text']!,
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.normal,
                   color: Colors.grey.shade500,
                 ),
               ),
-            ),
-            Config.spaceSmall,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: const <Widget>[
-                const SocialButton(social: 'google'),
-                const SocialButton(social: 'facebook'),
-              ],
-            ),
-            Config.spaceSmall,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                    AppText.enText['signUp_text']!,
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.normal,
-                      color: Colors.grey.shade500,
-                    ),
+              const Text(
+                'Inscription',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.normal,
+                  color: Colors.black,
                 ),
-                 const Text(
-                    'Iscription',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.normal,
-                      color: Colors.black,
-                    ),
-                ),
-              ],
-            )
+              ),
+            ],
+          )
         ],
       )),
     ));
